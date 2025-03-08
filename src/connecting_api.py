@@ -74,45 +74,46 @@ class EmployersInfoHHAPI(ConnectingHHAPI):
             url=self.__url, headers=self.__headers
         )
         current_emp_info = response.json()
-
+        print(response.status_code)
+        return current_emp_info
         # -----
-        #
+        # OLD VERSION
         # formatted_data = self.formatter_data(current_emp_info)
         # end_time = time()
         # return formatted_data
 
-    @staticmethod
-    def formatter_data(data):
-        """
-        . . .
-        :param data:
-        :return:
-        """
-        vacancies_url = data["vacancies_url"]
-        data["employer_id"] = data["id"]
-        data["area"] = data["area"]["name"]
-        data["industries_id"] = data["industries"][0]["id"] if data["industries"] else 0
-        data["industries_name"] = data["industries"][0]["name"] if data["industries"] else 0
-        if data["industries_name"]:
-            data["description"] = data["industries_name"]
-            del data["industries_name"]
-        else:
-            del data["industries_name"]
-            data["description"] = data["description"]
-        del (
-            data["site_url"],
-            data["id"],
-            data["alternate_url"],
-            data["vacancies_url"],
-            data["relations"],
-            data["industries"],
-            data["insider_interviews"],
-            data["branded_description"],
-            data["logo_urls"],
-            data["industries_id"],
-            data["branding"]
-        )
-        return data, vacancies_url
+    # @staticmethod
+    # def formatter_data(data):
+    #     """
+    #     . . .
+    #     :param data:
+    #     :return:
+    #     """
+    #     vacancies_url = data["vacancies_url"]
+    #     data["employer_id"] = data["id"]
+    #     data["area"] = data["area"]["name"]
+    #     data["industries_id"] = data["industries"][0]["id"] if data["industries"] else 0
+    #     data["industries_name"] = data["industries"][0]["name"] if data["industries"] else 0
+    #     if data["industries_name"]:
+    #         data["description"] = data["industries_name"]
+    #         del data["industries_name"]
+    #     else:
+    #         del data["industries_name"]
+    #         data["description"] = data["description"]
+    #     del (
+    #         data["site_url"],
+    #         data["id"],
+    #         data["alternate_url"],
+    #         data["vacancies_url"],
+    #         data["relations"],
+    #         data["industries"],
+    #         data["insider_interviews"],
+    #         data["branded_description"],
+    #         data["logo_urls"],
+    #         data["industries_id"],
+    #         data["branding"]
+    #     )
+    #     return data, vacancies_url
 
 
 class EmployerVacancies(ConnectingHHAPI):
