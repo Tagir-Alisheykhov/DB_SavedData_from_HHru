@@ -1,21 +1,23 @@
 import json
 import os
-from time import time
 
 from src.db_manager import DBManager
+
+from src.config import config
 from src.data_from_api import SearchEmployersHHAPI, EmployersInfoHHAPI, EmployerVacancies
+
 
 companies_list = [
     {"name": "IT-компания Xpage", "id": "702774"},
-    {"name": "IT-Компания АБС", "id": "740349"},
-    {"name": "IT-компания ДиалогСофт", "id": "1800345"},
-    {"name": "IT-компания Рациональные Решения", "id": "90010"},
-    {"name": "IT курсы EasyUM", "id": "3901159"},
-    {"name": "IT-Лидер", "id": "3487796"},
-    {"name": "IT-парк Питерский мостик", "id": "2570550"},
-    {"name": "IT-Сервис", "id": "3735331"},
-    {"name": "Компьютерная Академия IT STEP", "id": "3666820"},
-    {"name": "ИнтерКом IT", "id": "8958190"}
+    # {"name": "IT-Компания АБС", "id": "740349"},
+    # {"name": "IT-компания ДиалогСофт", "id": "1800345"},
+    # {"name": "IT-компания Рациональные Решения", "id": "90010"},
+    # {"name": "IT курсы EasyUM", "id": "3901159"},
+    # {"name": "IT-Лидер", "id": "3487796"},
+    # {"name": "IT-парк Питерский мостик", "id": "2570550"},
+    # {"name": "IT-Сервис", "id": "3735331"},
+    # {"name": "Компьютерная Академия IT STEP", "id": "3666820"},
+    # {"name": "ИнтерКом IT", "id": "8958190"}
 ]
 
 
@@ -61,3 +63,13 @@ def data_for_interface():
         # print(avg_salary)
 
     return employer_info, vacancies_list_info, avg_salary_vacancies
+
+
+# def connecting_db():
+#     """
+#     Соединение с базой данных PostgreSQL
+#     :return:
+#     """
+#     params = config()
+#
+#     create_db = CreateDB()

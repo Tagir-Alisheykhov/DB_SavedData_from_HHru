@@ -74,9 +74,12 @@ class EmployersInfoHHAPI(ConnectingHHAPI):
             url=self.__url, headers=self.__headers
         )
         current_emp_info = response.json()
-        formatted_data = self.formatter_data(current_emp_info)
-        end_time = time()
-        return formatted_data
+
+        # -----
+        #
+        # formatted_data = self.formatter_data(current_emp_info)
+        # end_time = time()
+        # return formatted_data
 
     @staticmethod
     def formatter_data(data):
@@ -131,18 +134,21 @@ class EmployerVacancies(ConnectingHHAPI):
 
     def connecting_api(self) -> [float, list]:
         """
-
         :return:
         """
         response = requests.get(url=self.vacancies_url)
         vacancies = response.json()["items"]
+
+        with open("data/vacancies.json", "w", encoding="UTF-8") as file_write:
+            json.dump(vacancies, file_write, indent=4, ensure_ascii=False)
+        with open("data/vacancies.json", "r",  encoding="UTF-8") as file_read:
+            vacancies = json.load(file_read)
+
         formatted_vacancies = self.formatter_vacancies(vacancies)
-        end_time = time()
         return formatted_vacancies
 
     def formatter_vacancies(self, vacancies):
         """
-
         :param vacancies:
         :return:
         """
@@ -153,75 +159,39 @@ class EmployerVacancies(ConnectingHHAPI):
                     {'from': 0, 'to': 0, 'currency': 'RUR'} if not vacancy["salary"] else vacancy["salary"]
             # print(json.dumps(vacancy, indent=2, ensure_ascii=False))
             published_at = datetime.strptime(vacancy["published_at"], "%Y-%m-%dT%H:%M:%S%z")
-            vacancy["vacancy_id"] = vacancy["id"]
-            vacancy["published_at_date"] = published_at.strftime("%d-%m-%Y")
-            vacancy["published_at_time"] = published_at.strftime("%H:%M:%S")
-            vacancy["city"] = vacancy["address"]["city"] if vacancy["address"] else None
-            vacancy["address"] = f'{vacancy["address"]["street"]} {vacancy["address"]["building"]}' \
+            new_dict = dict()
+            new_dict["vacancy_id"] = vacancy["id"]
+            new_dict["published_at_date"] = published_at.strftime("%d-%m-%Y")
+            new_dict["published_at_time"] = published_at.strftime("%H:%M:%S")
+            new_dict["city"] = vacancy["address"]["city"] if vacancy["address"] else None
+            new_dict["address"] = f'{vacancy["address"]["street"]} {vacancy["address"]["building"]}' \
                 if vacancy["address"] else None
-            vacancy["description"] = vacancy["snippet"]["requirement"]
-            vacancy["employer_id"] = vacancy["employer"]["id"]
-            vacancy["type"] = vacancy["type"]["id"]
-            vacancy["experience"] = vacancy["experience"]["id"]
-            vacancy["professional_roles"] = vacancy["professional_roles"][0]["name"]
-            vacancy["schedule"] = vacancy["schedule"]["id"]
-            vacancy["salary"] = self.detect_salary(vacancy["salary"])
-            vacancy["work_format"] = vacancy["work_format"][0]["id"] if vacancy["work_format"] else None
+            new_dict["description"] = vacancy["snippet"]["requirement"]
+            new_dict["employer_id"] = vacancy["employer"]["id"]
+            new_dict["type"] = vacancy["type"]["id"]
+            new_dict["experience"] = vacancy["experience"]["id"]
+            new_dict["professional_roles"] = vacancy["professional_roles"][0]["name"]
+            new_dict["schedule"] = vacancy["schedule"]["id"]
+            new_dict["salary"] = self.detect_salary(vacancy["salary"])
+            new_dict["work_format"] = vacancy["work_format"][0]["id"] if vacancy["work_format"] else None
 
             df_hours = pd.DataFrame(vacancy["working_hours"])
             hours_list = [x if isinstance(x, int) else "0" for x in df_hours["name"]]
             work_hours = "-".join(list(map(lambda x: re.findall(r"\d+", x)[0], hours_list)))
-            vacancy["working_hours"] = work_hours
+            new_dict["working_hours"] = work_hours
 
             df_schedule = pd.DataFrame(vacancy["work_schedule_by_days"])
             work_schedule = "-".join([x for x in df_schedule["name"]])
-            vacancy["work_schedule_by_days"] = work_schedule
+            new_dict["work_schedule_by_days"] = work_schedule
 
-            if vacancy.get("branding"):
-                del vacancy["branding"]
-            if vacancy.get("show_logo_in_search"):
-                del vacancy["show_logo_in_search"]
-            del (
-                vacancy["url"],
-                vacancy["id"],
-                vacancy["internship"],
-                vacancy["insider_interview"],
-                vacancy["archived"],
-                vacancy["premium"],
-                vacancy["adv_context"],
-                vacancy["professional_roles"],
-                vacancy["is_adv_vacancy"],
-                vacancy["accept_incomplete_resumes"],
-                vacancy["employment_form"],
-                vacancy["employment"],
-                vacancy["alternate_url"],
-                vacancy["apply_alternate_url"],
-                vacancy["relations"],
-                vacancy["working_days"],
-                vacancy["fly_in_fly_out_duration"],
-                vacancy["working_time_intervals"],
-                vacancy["working_time_modes"],
-                vacancy["has_test"],
-                vacancy["night_shifts"],
-                vacancy["response_url"],
-                vacancy["sort_point_distance"],
-                vacancy["adv_response_url"],
-                vacancy["department"],
-                vacancy["response_letter_required"],
-                vacancy["published_at"],
-                vacancy["created_at"],
-                vacancy["area"],
-                vacancy["snippet"],
-                vacancy["employer"]
-            )
             if not self.keyword:
-                vacancies_list.append(vacancy)
+                vacancies_list.append(new_dict)
             elif any(
                     isinstance(value, str)
                     and self.keyword
                     in value
                     for value in vacancy.values()):
-                vacancies_list.append(vacancy)
+                vacancies_list.append(new_dict)
         return vacancies_list
 
     @property
@@ -269,3 +239,43 @@ class EmployerVacancies(ConnectingHHAPI):
             return salary
         else:
             return 0
+
+
+
+            # if vacancy.get("branding"):
+            #     del vacancy["branding"]
+            # if vacancy.get("show_logo_in_search"):
+            #     del vacancy["show_logo_in_search"]
+            # del (
+            #     vacancy["url"],
+            #     vacancy["id"],
+            #     vacancy["internship"],
+            #     vacancy["insider_interview"],
+            #     vacancy["archived"],
+            #     vacancy["premium"],
+            #     vacancy["adv_context"],
+            #     vacancy["professional_roles"],
+            #     vacancy["is_adv_vacancy"],
+            #     vacancy["accept_incomplete_resumes"],
+            #     vacancy["employment_form"],
+            #     vacancy["employment"],
+            #     vacancy["alternate_url"],
+            #     vacancy["apply_alternate_url"],
+            #     vacancy["relations"],
+            #     vacancy["working_days"],
+            #     vacancy["fly_in_fly_out_duration"],
+            #     vacancy["working_time_intervals"],
+            #     vacancy["working_time_modes"],
+            #     vacancy["has_test"],
+            #     vacancy["night_shifts"],
+            #     vacancy["response_url"],
+            #     vacancy["sort_point_distance"],
+            #     vacancy["adv_response_url"],
+            #     vacancy["department"],
+            #     vacancy["response_letter_required"],
+            #     vacancy["published_at"],
+            #     vacancy["created_at"],
+            #     vacancy["area"],
+            #     vacancy["snippet"],
+            #     vacancy["employer"]
+            # )

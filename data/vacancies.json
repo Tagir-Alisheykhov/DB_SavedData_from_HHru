@@ -1,0 +1,950 @@
+[
+    {
+        "id": "117556563",
+        "premium": false,
+        "name": "Администратор бэк-офиса",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 65000,
+            "to": 90000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-03-08T11:47:08+0300",
+        "created_at": "2025-03-08T11:47:08+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117556563",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117556563?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117556563",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Опыт работы в аналогичной должности от 1 года в IT-компании. Умение вести переговоры (как с командой, клиентами компании, так...",
+            "responsibility": "Разработка и внедрение стратегических планов: проведение регулярного анализа результатов деятельности отдела, формирование предложений по улучшению процессов и повышению их эффективности..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "8",
+                "name": "Администратор"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "117005494",
+        "premium": false,
+        "name": "HTML-верстальщик",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 40000,
+            "to": null,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-02-10T08:03:46+0300",
+        "created_at": "2025-02-10T08:03:46+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117005494",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117005494?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117005494",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Знания HTML(pug)/CSS: Адаптивная и кроссбраузерная верстка, знание семантических элементов, Flexbox, Grid Layout. Опыт с работы с пре- и...",
+            "responsibility": "Верстать сайты по готовому дизайну из Figma. Адаптация сайтов под мобильные устройства. Изменять дорабатывать и поддерживать уже существующие сайты."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            },
+            {
+                "id": "HYBRID",
+                "name": "Гибрид"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "96",
+                "name": "Программист, разработчик"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "117145174",
+        "premium": false,
+        "name": "Дизайнер",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 50000,
+            "to": 80000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-02-12T13:29:59+0300",
+        "created_at": "2025-02-12T13:29:59+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117145174",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117145174?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117145174",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Опыт работы дизайнером от 2-3 лет. Наличие портфолио обязательно! Владение Adobe Illustrator, Photoshop, Figma. Понимание основ композиции, типографики, UX...",
+            "responsibility": "Создание логотипов, подбор шрифтов, цветовых схем, графических элементов. Разработка гайдлайнов и брендбуков. Дизайн и верстка печатных материалов: визитки, буклеты, каталоги..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "34",
+                "name": "Дизайнер, художник"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "117679960",
+        "premium": false,
+        "name": "Ассистент PR-директора",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 20000,
+            "to": 25000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-02-25T12:28:29+0300",
+        "created_at": "2025-02-25T12:28:29+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117679960",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117679960?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117679960",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Опыт работы с социальными сетями от 1 года: способность оценивать и анализировать визуальный контент, быть в курсе новых трендов в...",
+            "responsibility": "Писать тексты и корректировать их (соцсети, пресс-релизы, тезисы статей). Анализировать рынок СМИ, новостей, изменений. Посещать мероприятия. Писать ТЗ для..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [
+            {
+                "id": "from_four_to_six_hours_in_a_day",
+                "name": "Можно сменами по 4-6 часов в день"
+            }
+        ],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_4",
+                "name": "4 часа"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "2",
+                "name": "PR-менеджер"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "part",
+            "name": "Частичная занятость"
+        },
+        "employment_form": {
+            "id": "PART",
+            "name": "Частичная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "117492246",
+        "premium": false,
+        "name": "Менеджер по продажам в IT",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 150000,
+            "to": 250000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-03-06T17:47:15+0300",
+        "created_at": "2025-03-06T17:47:15+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117492246",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117492246?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117492246",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Успешный опыт в B2B продажах. Ведение переговоров с первыми лицами компаний. Стратегическое мышление, энергичность, настойчивость в достижении цели...",
+            "responsibility": "Заниматься продажами сложных решений в сфере IT: сайты, порталы, мобильные приложения, маркетинг, автоматизации. Участие в тендерах и изучение тендерной документации. "
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "remote",
+            "name": "Удаленная работа"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            },
+            {
+                "id": "REMOTE",
+                "name": "Удалённо"
+            },
+            {
+                "id": "HYBRID",
+                "name": "Гибрид"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "70",
+                "name": "Менеджер по продажам, менеджер по работе с клиентами"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "115631215",
+        "premium": false,
+        "name": "Проектный менеджер / Маркетинг",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 70000,
+            "to": null,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-02-14T16:29:05+0300",
+        "created_at": "2025-02-14T16:29:05+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=115631215",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/115631215?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/115631215",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Опыт ведения проектов в сфере маркетинга от 1 года. Отличные коммуникативные навыки, умение выстраивать и развивать отношения с клиентами, командой. ",
+            "responsibility": "Коммуницировать с клиентами по телефону, в чатах, при личных встречах. Разрабатывать и реализовывать стратегию развития проекта, внедрять улучшения в проект. "
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            },
+            {
+                "id": "HYBRID",
+                "name": "Гибрид"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "107",
+                "name": "Руководитель проектов"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "117861184",
+        "premium": false,
+        "name": "Менеджер по продажам / Маркетинг",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 70000,
+            "to": 150000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-03-08T17:41:45+0300",
+        "created_at": "2025-03-08T17:41:45+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117861184",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117861184?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117861184",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Успешный опыт в B2B продажах. Ведение переговоров с первыми лицами компаний. Стратегическое мышление, энергичность, настойчивость в достижении цели...",
+            "responsibility": "Заниматься продажей маркетинговых услуг: SEO, платная реклама, брендинг, фирменные стили, ноукод сайты и сайты на готовых решениях, социальные сети, фотосъемки..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "70",
+                "name": "Менеджер по продажам, менеджер по работе с клиентами"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "117492220",
+        "premium": false,
+        "name": "Backend-разработчик PHP (1C-Bitrix) / Middle",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "104",
+            "name": "Челябинск",
+            "url": "https://api.hh.ru/areas/104"
+        },
+        "salary": {
+            "from": 80000,
+            "to": null,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Челябинск",
+            "street": "Лесопарковая улица",
+            "building": "8",
+            "lat": 55.150417,
+            "lng": 61.361599,
+            "description": null,
+            "raw": "Челябинск, Лесопарковая улица, 8",
+            "metro": null,
+            "metro_stations": [],
+            "id": "3166450"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-02-19T17:46:39+0300",
+        "created_at": "2025-02-19T17:46:39+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117492220",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/117492220?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/117492220",
+        "relations": [],
+        "employer": {
+            "id": "702774",
+            "name": "IT-компания Xpage",
+            "url": "https://api.hh.ru/employers/702774",
+            "alternate_url": "https://hh.ru/employer/702774",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1269387.png",
+                "90": "https://img.hhcdn.ru/employer-logo/6697858.png",
+                "240": "https://img.hhcdn.ru/employer-logo/6697859.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=702774",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Работа с PHP, MySQL на продвинутом уровне. Опыт работы с продуктами 1С-Битрикс от 1,5 лет. ",
+            "responsibility": "Создание сложных веб-проектов / сайтов для компаний. Разработка автоматизированных систем управления, включая корпоративные порталы со сложной интеграцией. Реализация внутренних проектов..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "ON_SITE",
+                "name": "На месте работодателя"
+            },
+            {
+                "id": "HYBRID",
+                "name": "Гибрид"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_8",
+                "name": "8 часов"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FIVE_ON_TWO_OFF",
+                "name": "5/2"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "96",
+                "name": "Программист, разработчик"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "employment_form": {
+            "id": "FULL",
+            "name": "Полная"
+        },
+        "internship": false,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    }
+]
