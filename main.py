@@ -3,11 +3,12 @@ import os
 from time import time
 
 from src.db_manager import DBManager
-from src.data_from_api import SearchEmployersHHAPI, EmployersInfoHHAPI, EmployerVacancies
+from src.connecting_api import SearchEmployersHHAPI, EmployersInfoHHAPI, EmployerVacancies
 from src.utils import data_for_interface
 
 if __name__ == '__main__':
     start_time = time()
+    print("Подключение к API\n.")
     # -----------------
 
     employer_info, vacancies_list_info, avg_salary_vacancies = data_for_interface()
