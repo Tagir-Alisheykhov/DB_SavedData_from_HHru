@@ -2,64 +2,47 @@ import json
 import os
 from time import time
 
+from src.config import config
 from src.db_manager import DBManager
-from src.connecting_api import SearchEmployersHHAPI, EmployersInfoHHAPI, EmployerVacancies
-from src.utils import data_for_interface
+from src.utils import data_to_insert, request1, request2
+from src.config import config, sensitive_env
+
+
+def main():
+    """
+    :return:
+    """
+    # API connecting...
+    employer_info, vacancies_list_info, avg_salary_vacancies = data_to_insert()
+    # . . .
+    # print(json.dumps(vacancies_list_info, indent=4, ensure_ascii=False))
+    # --------------------------------------
+
+    # Загрузка параметров для подключения к БД.
+    params = config() | sensitive_env()
+    dbname = params["database"]
+    del params["database"]
+
+    # Подключение к менеджеру для работы с БД.
+    db_manager = DBManager(params=params, dbname=dbname)
+    db_manager.create(new_db_name="head_hunter")   # Создание БД.
+    db_manager.design(request=request1, close=True)  # Проектирование БД.
+    db_manager.insert(request=request2)
+
 
 if __name__ == '__main__':
     start_time = time()
     print("Подключение к API\n.")
     # -----------------
-
-    employer_info, vacancies_list_info, avg_salary_vacancies = data_for_interface()
-
+    main()
     # -----------------
     end_time = time()
     def_time = end_time - start_time
-    print(f'Время выполнения программы: \n{def_time}')
+    print(f'\nВремя выполнения программы: \n{def_time}')
 
 
 
 
-#
-#
-#
-#
-#     # api_key = os.getenv('HH_API_KEY')
-#     # list_companies = list()
-#
-#     # search_emp = SearchEmployersHHAPI()
-#     # print(search_emp.connecting_api())
-#
-#     # Следующая логика обрабатывает только одного работодателя.
-#     # (Нужно будет использовать цикл для всех работодателей)
-#     #     ----------------------------------------
-#     # Выводим данные каждого работодателя
-#     # data_from_api = EmployersInfoHHAPI()
-#     # employer_data = data_from_api.connecting_api()
-#     # employer_data, vacancies_url = employer_data
-#     # print(json.dumps(employer_data, indent=2, ensure_ascii=False))
-#     # print()
-#
-# #     ----------------------------------------
-#     # # Здесь нужно вывести все вакансии (и желательно avg_salary)
-#     # vacancies = EmployerVacancies(vacancies_url=vacancies_url)
-#     # vacancies_list = vacancies.connecting_api()
-#     # print(json.dumps(vacancies_list, indent=4, ensure_ascii=False))
-#     # print()
-#
-# #     ----------------------------------------
-#     # vacancies.avg_salary_vacancies = vacancies_list
-#     # avg_salary = vacancies.avg_salary_vacancies
-#     # print(avg_salary)
-#
-
-#
-#
-#
-#
-#
-#     # ЧТО НУЖНО СДЕЛАТЬ: ДОФО
 
 
 

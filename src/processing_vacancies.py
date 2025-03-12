@@ -43,15 +43,10 @@ class VacancyProcessing:
             new_dict["schedule"] = vacancy["schedule"]["id"]
             new_dict["salary"] = self.detect_salary(vacancy["salary"])
             new_dict["work_format"] = vacancy["work_format"][0]["id"] if vacancy["work_format"] else None
-
-            df_hours = pd.DataFrame(vacancy["working_hours"])
-            hours_list = [x if isinstance(x, int) else "0" for x in df_hours["name"]]
-            work_hours = "-".join(list(map(lambda x: re.findall(r"\d+", x)[0], hours_list)))
-            new_dict["working_hours"] = work_hours
-
-            df_schedule = pd.DataFrame(vacancy["work_schedule_by_days"])
-            work_schedule = "-".join([x for x in df_schedule["name"]])
-            new_dict["work_schedule_by_days"] = work_schedule
+            working_hours = self.processing_key_working_hours(vacancy["working_hours"])
+            new_dict["working_hours"] = working_hours
+            working_schedule = self.processing_key_work_schedule_by_days(vacancy["work_schedule_by_days"])
+            new_dict["work_schedule_by_days"] = working_schedule
 
             if not self.keyword:
                 vacancies_list.append(new_dict)
@@ -63,15 +58,24 @@ class VacancyProcessing:
                 vacancies_list.append(new_dict)
         return vacancies_list
 
-    def currency_validate(self, vacancy):
+    @staticmethod
+    def processing_key_work_schedule_by_days(work_schedule_by_days):
         """
         :return:
         """
-        if self.currency:
-            vacancy["salary"] = (
-                {'from': 0, 'to': 0, 'currency': 'RUR'}
-                if not vacancy["salary"] else vacancy["salary"])
-            return vacancy["salary"]
+        df_schedule = pd.DataFrame(work_schedule_by_days)
+        work_schedule = "-".join([x for x in df_schedule["name"]])
+        return work_schedule
+
+    @staticmethod
+    def processing_key_working_hours(working_hours):
+        """
+        :return:
+        """
+        df_hours = pd.DataFrame(working_hours)
+        hours_list = [x if isinstance(x, int) else "0" for x in df_hours["name"]]
+        work_hours = "-".join(list(map(lambda x: re.findall(r"\d+", x)[0], hours_list)))
+        return work_hours
 
     @staticmethod
     def detect_salary(salary):
@@ -92,6 +96,16 @@ class VacancyProcessing:
         else:
             return 0
 
+    def currency_validate(self, vacancy):
+        """
+        :return:
+        """
+        if self.currency:
+            vacancy["salary"] = (
+                {'from': 0, 'to': 0, 'currency': 'RUR'}
+                if not vacancy["salary"] else vacancy["salary"])
+            return vacancy["salary"]
+
 
 class VacanciesSalaryAVG:
     """
@@ -108,16 +122,12 @@ class VacanciesSalaryAVG:
         """
         :return:
         """
-        print(f"Количество вакансий по заданным параметрам: \n{len(self.vacancies)}")
+        # print(f"Количество вакансий по заданным параметрам: \n{len(self.vacancies)}")
         if self.vacancies:
             salary_list = [vacancy["salary"] for vacancy in self.vacancies if vacancy["salary"] > 0]
             if salary_list:
                 self._avg_salaries = sum(salary_list) / len(salary_list)
             else:
                 self._avg_salaries = None
-        try:
-            print("Средняя зарплата работодателя по вакансиям:")
-            return round(self._avg_salaries, 2)
-        except TypeError:
-            print("-- Warning: Не удалось вывести среднее значение")
-            print("   У данного работодателя нет вакансий по заданным параметрам.")
+        return round(self._avg_salaries, 2)
+

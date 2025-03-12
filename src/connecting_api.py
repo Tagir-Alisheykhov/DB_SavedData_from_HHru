@@ -1,9 +1,6 @@
 import json
-import re
-from datetime import datetime
 import requests
 from abc import ABC, abstractmethod
-import pandas as pd
 
 
 class ConnectingHHAPI(ABC):

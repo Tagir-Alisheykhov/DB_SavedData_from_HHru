@@ -1,24 +1,54 @@
+import os
 from configparser import ConfigParser
+from dotenv import load_dotenv
+
+path_to_data = (
+    os.path.join(
+        os.path.dirname(
+            os.path.dirname(__file__)
+        ), "data/"
+    )
+)
 
 
-def config(filename="database.ini", section="postgresql"):
+def sensitive_env() -> dict:
     """
-
-    :param filename:
-    :param section:
-    :return:
+    Вывод чувствительных данных для
+    подключения к базе данных.
+    :return: Чувствительные параметры для
+    подключения к БД.
     """
-    # create a parser
+    load_dotenv()
+    db_password = os.getenv("PASSWORD_DB")
+    db_name = os.getenv("DBNAME")
+
+    sensitive_data = {
+        "password": db_password,
+        "database": db_name
+    }
+    return sensitive_data
+
+
+def config(
+        filename: str = path_to_data + "database.ini",
+        section: str = "postgresql") -> dict:
+    """
+    :param filename: Путь до конфигурационных данных.
+    :param section: Секция внутри файла.
+    :return: Нечувствительные подключения к БД.
+    """
     parser = ConfigParser()
-    # read config file
     parser.read(filename)
-    db = dict()
+
+    db_data = dict()
     if parser.has_section(section):
         params = parser.items(section)
         for param in params:
-            db[param[0]] = param[1]
+            db_data[param[0]] = param[1]
     else:
         raise Exception(
-            "Section {0} is not found in the {1} file.".format(section, filename)
+            "Section {0} is not found in the {1} file.".format(
+                section, filename
+            )
         )
-    return db
+    return db_data

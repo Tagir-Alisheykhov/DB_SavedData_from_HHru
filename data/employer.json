@@ -9,9 +9,9 @@
     "alternate_url": "https://hh.ru/employer/8958190",
     "vacancies_url": "https://api.hh.ru/vacancies?employer_id=8958190",
     "logo_urls": {
-        "original": "https://img.hhcdn.ru/employer-logo-original/976112.png",
+        "240": "https://img.hhcdn.ru/employer-logo/5525289.png",
         "90": "https://img.hhcdn.ru/employer-logo/5525288.png",
-        "240": "https://img.hhcdn.ru/employer-logo/5525289.png"
+        "original": "https://img.hhcdn.ru/employer-logo-original/976112.png"
     },
     "relations": [],
     "area": {

@@ -58,18 +58,11 @@ class SaveEmpInfoJSON(SaveToFile):
         new_data['accredited_it_employer'] = raw_emp_data['accredited_it_employer']
         new_data["area"] = raw_emp_data["area"]["name"]
         new_data["open_vacancies"] = raw_emp_data["open_vacancies"]
-
-        # Проверяем наличие ключа "industries" и что список не пуст
         industries = raw_emp_data.get("industries")
-        if industries and len(industries) > 0:  # Проверка на None и пустой список
+        if industries and len(industries) > 0:
             new_data["description"] = industries[0]["name"]
         else:
             new_data["description"] = raw_emp_data.get("description", "")
-
-        # if raw_emp_data.get("industries")[0]["name"]:
-        #     new_data["description"] = raw_emp_data.get("industries")[0]["name"]
-        # else:
-        #     new_data["description"] = raw_emp_data["description"]
         return new_data, vacancies_url
 
 
@@ -95,6 +88,3 @@ class SaveVacanciesJSON:
         with open("data/vacancies.json", "r",  encoding="UTF-8") as file_read:
             vacancies = json.load(file_read)
             return vacancies
-
-
-
