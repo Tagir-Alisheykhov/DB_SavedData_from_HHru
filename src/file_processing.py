@@ -1,5 +1,8 @@
+import os
 import json
 from abc import ABC, abstractmethod
+
+path_to_data = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data/")
 
 
 class SaveToFile(ABC):
@@ -40,7 +43,7 @@ class SaveEmpInfoJSON(SaveToFile):
         """
         :return:
         """
-        with open("data/employer.json", "r", encoding="UTF-8") as file_reading:
+        with open(path_to_data + "employer.json", "r", encoding="UTF-8") as file_reading:
             reading_data = json.load(file_reading)
             reading_data = self.formatter_data(reading_data)
             return reading_data
@@ -65,14 +68,6 @@ class SaveEmpInfoJSON(SaveToFile):
             new_data["description"] = raw_emp_data.get("description", "")
         return new_data, vacancies_url
 
-        # query_data_emp = (
-        #     employer_data["employer_id"],
-        #     employer_data["name"],
-        #     employer_data["accredited_it_employer"],
-        #     employer_data["area"],
-        #     employer_data["open_vacancies"],
-        #     employer_data["description"]
-
 
 class SaveVacanciesJSON:
     """
@@ -88,7 +83,7 @@ class SaveVacanciesJSON:
         """
         :return:
         """
-        with open("data/vacancies.json", "w", encoding="UTF-8") as file_write:
+        with open(path_to_data + "vacancies.json", "w", encoding="UTF-8") as file_write:
             json.dump(self.vacancies, file_write, indent=4, ensure_ascii=False)
 
     @property
@@ -96,3 +91,13 @@ class SaveVacanciesJSON:
         with open("data/vacancies.json", "r",  encoding="UTF-8") as file_read:
             vacancies = json.load(file_read)
             return vacancies
+
+
+class ReadCompaniesList():
+    """
+    Чтение списка
+    """
+    @property
+    def read_data_json(self):
+        with open(path_to_data + "companies_list.json", "r", encoding="UTF-8") as read_file:
+            return json.load(read_file)

@@ -146,25 +146,28 @@ class DBManager:
 
     def get_vacancies_with_keyword(self, keyword):
         """
-        Получает список всех вакансий, в названии которых
-        содержатся переданные в метод слова, например python.
-        :return:
+        Получает список всех вакансий по ключевому слову.
+        :return: Вакансии по ключевому слову.
         """
-        self.cur.execute(
-            f"""SELECT * FROM vacancies
-            WHERE 
-            LOWER(CONCAT(description, ' ', city, ' ', address, ' ', professional_roles,
-            ' ', schedule, ' ',work_format, ' ', work_schedule_by_days, ' ', url, ' '))
-            LIKE(LOWER('%{keyword}%'))"""
-        )
-        df = pd.DataFrame(self.cur.fetchall())
-        df.columns = [
-            "vacancy_id", "employer_id", "type", "published_at_date", "published_at_time",
-            "city", "address", "experience", "professional_roles", "schedule", "salary",
-            "work_format", "working_hours", "work_schedule_by_days", "url", "description"
-        ]
-        df.index = df.index + 1
-        return df
+        print(keyword)
+        try:
+            self.cur.execute(
+            f"SELECT * FROM vacancies "
+            f"WHERE LOWER(CONCAT(description, ' ', city, ' ', address, ' ', professional_roles, "
+            f"' ', schedule, ' ',work_format, ' ', work_schedule_by_days, ' ', url, ' ')) "
+            f"LIKE(LOWER('%{keyword}%'))"
+            )
+            df = pd.DataFrame(self.cur.fetchall())
+            df.columns = [
+                "vacancy_id", "employer_id", "type", "published_at_date", "published_at_time",
+                "city", "address", "experience", "professional_roles", "schedule", "salary",
+                "work_format", "working_hours", "work_schedule_by_days", "url", "description"
+            ]
+            df.index = df.index + 1
+        except ValueError:
+            return None
+        else:
+            return df
 
     def end_sessions(self, dat_name: str) -> None:
         """
