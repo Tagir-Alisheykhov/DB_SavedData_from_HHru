@@ -1,22 +1,29 @@
 import json
-import os
 from time import time
 
-from src.config import config
+import pandas as pd
+
+from src.connecting_api import SearchEmployersHHAPI
 from src.db_manager import DBManager
-from src.utils import data_to_insert, request1, request2
+from src.utils import data_to_insert, query_design, user_interface
 from src.config import config, sensitive_env
 
 
-def main():
+def main() -> None:
     """
+    Основная функция для объединения и вызова
+    всего функционала программы.
     :return:
     """
-    # API connecting...
-    employer_info, vacancies_list_info, avg_salary_vacancies = data_to_insert()
-    # . . .
-    # print(json.dumps(vacancies_list_info, indent=4, ensure_ascii=False))
-    # --------------------------------------
+    # # Отладка
+    # search = SearchEmployersHHAPI()
+    # result = search.connecting_api()
+    # print(json.dumps(result, indent=4, ensure_ascii=False))
+
+
+    # ------------------------------------------
+    # Подключение к API и обработка данных.
+    employers, vacancies = data_to_insert()
 
     # Загрузка параметров для подключения к БД.
     params = config() | sensitive_env()
@@ -25,9 +32,30 @@ def main():
 
     # Подключение к менеджеру для работы с БД.
     db_manager = DBManager(params=params, dbname=dbname)
-    db_manager.create(new_db_name="head_hunter")   # Создание БД.
-    db_manager.design(request=request1, close=True)  # Проектирование БД.
-    db_manager.insert(request=request2)
+    db_manager.create(new_db_name="head_hunter")
+    db_manager.design(query=query_design)
+    db_manager.insert(employers=employers, vacancies=vacancies)
+    # ------------------------------------------
+
+
+    # user_interface(
+    #     db_manager.get_companies_and_vacancies_count,
+    #     db_manager.get_all_vacancies,
+    #     db_manager.get_avg_salary,
+    #     db_manager.get_vacancies_with_higher_salary,
+    # )
+    # print(db_manager.get_companies_and_vacancies_count)
+    # print()
+    # print(db_manager.get_all_vacancies)
+    # print()
+    # print(db_manager.get_avg_salary)
+    # print()
+    # print(db_manager.get_vacancies_with_higher_salary)
+    # print()
+    # print(db_manager.get_vacancies_with_keyword("PHP"))
+    # db_manager.close()
+
+#   Проблема с корректной валютой (проще всего будет сменить компании на Российские)
 
 
 if __name__ == '__main__':

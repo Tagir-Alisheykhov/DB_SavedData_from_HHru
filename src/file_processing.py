@@ -65,6 +65,14 @@ class SaveEmpInfoJSON(SaveToFile):
             new_data["description"] = raw_emp_data.get("description", "")
         return new_data, vacancies_url
 
+        # query_data_emp = (
+        #     employer_data["employer_id"],
+        #     employer_data["name"],
+        #     employer_data["accredited_it_employer"],
+        #     employer_data["area"],
+        #     employer_data["open_vacancies"],
+        #     employer_data["description"]
+
 
 class SaveVacanciesJSON:
     """

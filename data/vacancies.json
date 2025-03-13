@@ -1,79 +1,195 @@
 [
     {
-        "id": "117603465",
+        "id": "118250505",
         "premium": false,
-        "name": "Специалист по обслуживанию СКС, видеонаблюдения, пожарной сигнализации",
+        "name": "Программист-стажер",
         "department": null,
         "has_test": false,
-        "response_letter_required": false,
+        "response_letter_required": true,
         "area": {
-            "id": "194",
-            "name": "Усть-Каменогорск",
-            "url": "https://api.hh.ru/areas/194"
+            "id": "88",
+            "name": "Казань",
+            "url": "https://api.hh.ru/areas/88"
         },
         "salary": {
-            "from": 300000,
-            "to": null,
-            "currency": "KZT",
+            "from": null,
+            "to": 25000,
+            "currency": "RUR",
             "gross": false
         },
         "type": {
             "id": "open",
             "name": "Открытая"
         },
-        "address": {
-            "city": "Усть-Каменогорск",
-            "street": "Пограничная улица",
-            "building": "58Б",
-            "lat": 49.980750076335084,
-            "lng": 82.55119916931079,
-            "description": null,
-            "raw": "Усть-Каменогорск, Пограничная улица, 58Б",
-            "metro": null,
-            "metro_stations": [],
-            "id": "11149207"
-        },
+        "address": null,
         "response_url": null,
         "sort_point_distance": null,
-        "published_at": "2025-02-24T08:09:05+0300",
-        "created_at": "2025-02-24T08:09:05+0300",
+        "published_at": "2025-03-12T14:27:35+0300",
+        "created_at": "2025-03-12T14:27:35+0300",
         "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=117603465",
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=118250505",
         "show_logo_in_search": null,
         "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/117603465?host=hh.ru",
-        "alternate_url": "https://hh.ru/vacancy/117603465",
+        "url": "https://api.hh.ru/vacancies/118250505?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/118250505",
         "relations": [],
         "employer": {
-            "id": "8958190",
-            "name": "ИнтерКом IT",
-            "url": "https://api.hh.ru/employers/8958190",
-            "alternate_url": "https://hh.ru/employer/8958190",
+            "id": "9074163",
+            "name": "Храмшин Тимур Раисович",
+            "url": "https://api.hh.ru/employers/9074163",
+            "alternate_url": "https://hh.ru/employer/9074163",
             "logo_urls": {
-                "240": "https://img.hhcdn.ru/employer-logo/5525289.png",
-                "90": "https://img.hhcdn.ru/employer-logo/5525288.png",
-                "original": "https://img.hhcdn.ru/employer-logo-original/976112.png"
+                "original": "https://img.hhcdn.ru/employer-logo-original/1080852.png",
+                "240": "https://img.hhcdn.ru/employer-logo/5944038.png",
+                "90": "https://img.hhcdn.ru/employer-logo/5944037.png"
             },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=8958190",
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9074163",
             "accredited_it_employer": false,
             "trusted": true
         },
         "snippet": {
-            "requirement": "Опыт работы с оборудованием производителей Bolid, ВЭРС, Гранит, Ария, Астра, Dahua, HiWath, Hikvision и прочее оборудование для систем безопасности. ",
-            "responsibility": "Выезд на место и устранение неисправностей в соответствии с заявкой заказчика. Ремонт оборудования, подключение, замена, настройка и регулировка оборудования. "
+            "requirement": "Python (опыт написания чат-ботов, работа с API). [альтернативы рассматриваем].  OpenAI API (интеграция ChatGPT в бота).  Логическое мышление – умение строить...",
+            "responsibility": "Создавать Telegram-ботов под разные гипотезы (на Python с OpenAI API). Быстро тестировать идеи в рынке, настраивать и дорабатывать ботов. "
         },
         "contacts": null,
         "schedule": {
-            "id": "fullDay",
-            "name": "Полный день"
+            "id": "remote",
+            "name": "Удаленная работа"
         },
         "working_days": [],
         "working_time_intervals": [],
         "working_time_modes": [],
-        "accept_temporary": false,
+        "accept_temporary": true,
         "fly_in_fly_out_duration": [],
-        "work_format": [],
+        "work_format": [
+            {
+                "id": "REMOTE",
+                "name": "Удалённо"
+            }
+        ],
         "working_hours": [
+            {
+                "id": "FLEXIBLE",
+                "name": "По договорённости"
+            }
+        ],
+        "work_schedule_by_days": [
+            {
+                "id": "FLEXIBLE",
+                "name": "Свободный"
+            }
+        ],
+        "night_shifts": false,
+        "professional_roles": [
+            {
+                "id": "96",
+                "name": "Программист, разработчик"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "noExperience",
+            "name": "Нет опыта"
+        },
+        "employment": {
+            "id": "project",
+            "name": "Проектная работа"
+        },
+        "employment_form": {
+            "id": "PROJECT",
+            "name": "Проект или разовое задание"
+        },
+        "internship": true,
+        "adv_response_url": null,
+        "is_adv_vacancy": false,
+        "adv_context": null
+    },
+    {
+        "id": "118312855",
+        "premium": false,
+        "name": "Бизнес-ассистент",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": true,
+        "area": {
+            "id": "88",
+            "name": "Казань",
+            "url": "https://api.hh.ru/areas/88"
+        },
+        "salary": {
+            "from": null,
+            "to": 25000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": null,
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2025-03-13T17:50:09+0300",
+        "created_at": "2025-03-13T17:50:09+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=118312855",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/118312855?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/118312855",
+        "relations": [],
+        "employer": {
+            "id": "9074163",
+            "name": "Храмшин Тимур Раисович",
+            "url": "https://api.hh.ru/employers/9074163",
+            "alternate_url": "https://hh.ru/employer/9074163",
+            "logo_urls": {
+                "original": "https://img.hhcdn.ru/employer-logo-original/1080852.png",
+                "240": "https://img.hhcdn.ru/employer-logo/5944038.png",
+                "90": "https://img.hhcdn.ru/employer-logo/5944037.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9074163",
+            "accredited_it_employer": false,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Что ты будешь делать? ️ Умение работать в многозадачном режиме – иногда задач будет много, но мы поможем приоритетами. ️ Навыки работы с...",
+            "responsibility": "Контролировать выполнение задач (следить, чтобы программисты и маркетологи работали по плану).  Вести документы и отчёты (Google Docz).  Помогать с наймом..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "remote",
+            "name": "Удаленная работа"
+        },
+        "working_days": [],
+        "working_time_intervals": [
+            {
+                "id": "from_four_to_six_hours_in_a_day",
+                "name": "Можно сменами по 4-6 часов в день"
+            }
+        ],
+        "working_time_modes": [],
+        "accept_temporary": true,
+        "fly_in_fly_out_duration": [],
+        "work_format": [
+            {
+                "id": "REMOTE",
+                "name": "Удалённо"
+            },
+            {
+                "id": "FIELD_WORK",
+                "name": "Разъездной"
+            }
+        ],
+        "working_hours": [
+            {
+                "id": "HOURS_6",
+                "name": "6 часов"
+            },
+            {
+                "id": "HOURS_7",
+                "name": "7 часов"
+            },
             {
                 "id": "HOURS_8",
                 "name": "8 часов"
@@ -88,14 +204,14 @@
         "night_shifts": false,
         "professional_roles": [
             {
-                "id": "111",
-                "name": "Сервисный инженер, инженер-механик"
+                "id": "110",
+                "name": "Секретарь, помощник руководителя, ассистент"
             }
         ],
         "accept_incomplete_resumes": false,
         "experience": {
-            "id": "between3And6",
-            "name": "От 3 до 6 лет"
+            "id": "noExperience",
+            "name": "Нет опыта"
         },
         "employment": {
             "id": "full",

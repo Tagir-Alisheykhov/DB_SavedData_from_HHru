@@ -39,7 +39,7 @@ class SearchEmployersHHAPI(ConnectingHHAPI):
             "only_with_vacancies": True
         }
 
-    def connecting_api(self, keyword="IT"):
+    def connecting_api(self, keyword="It"):
         """
         :param keyword:
         :return:
@@ -49,7 +49,7 @@ class SearchEmployersHHAPI(ConnectingHHAPI):
             url=self.__url, params=self.__params, headers=self.__headers
         )
         result = response.json()
-        return json.dumps(result, indent=4, ensure_ascii=False)
+        return result
 
 
 class EmployersInfoHHAPI(ConnectingHHAPI):
