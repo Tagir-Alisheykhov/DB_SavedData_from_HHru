@@ -1,18 +1,20 @@
 import re
 import time
+
 import pandas as pd
 
 from src.connecting_api import EmployersInfoHHAPI, EmployerVacancies
 from src.db_manager import DBManager
-from src.file_processing import SaveEmpInfoJSON, SaveVacanciesJSON, ReadCompaniesList
+from src.file_processing import (ReadCompaniesList, SaveEmpInfoJSON,
+                                 SaveVacanciesJSON)
 from src.processing_vacancies import VacancyProcessing
 
 
 def data_to_insert() -> tuple[list, list]:
     """
     Функция для подключения к APi и обработки
-    данных в пригодный формат.
-    :return:
+    данных в допустимый формат для записи в БД.
+    :return: Работодатели, вакансии.
     """
     print("Данные обрабатываются.")
     query_insert_employer = []
@@ -43,7 +45,7 @@ def data_to_insert() -> tuple[list, list]:
         # Чтение данных из файла
         read_vacancies = saved_vacancies.read_data_json
         # Форматирование списка вакансий
-        formatted_vacancies = VacancyProcessing(read_vacancies, keyword=None)
+        formatted_vacancies = VacancyProcessing(read_vacancies)
         vacancies_list = formatted_vacancies.formatter_vacancies()
         for vacancy in vacancies_list:
             query_insert_vacancies.append(tuple(vacancy.values()))
@@ -52,9 +54,8 @@ def data_to_insert() -> tuple[list, list]:
 
 def user_interface(db_manager: DBManager) -> str:
     """
-    Интерфейс для взаимодействия пользователя
-    с программой.
-    :param db_manager: Объект класса DBManager для взаимодействия с БД.
+    Интерфейс для взаимодействия пользователя с программой.
+    :param db_manager: Объект класса DBManager для работы с БД.
     """
     mes1, mes2, mes3 = program_message()
     print(mes1)
@@ -83,9 +84,14 @@ def user_interface(db_manager: DBManager) -> str:
                         keyword = input("Введите ключевое слово для поиска вакансий: ")
                         keyword = re.findall(r"\w+", keyword)
                         keyword = " ".join(keyword)
-                        get_vacancies = db_manager.get_vacancies_with_keyword(keyword.strip())
-                        (print(get_vacancies) if isinstance(get_vacancies, pd.DataFrame)
-                                         else print("\nЯ таких слов не знаю.. (-_-) "))
+                        get_vacancies = db_manager.get_vacancies_with_keyword(
+                            keyword.strip()
+                        )
+                        (
+                            print(get_vacancies)
+                            if isinstance(get_vacancies, pd.DataFrame)
+                            else print("\nЯ таких слов не знаю.. (-_-) ")
+                        )
                 print(mes3)
     except KeyboardInterrupt:
         return "\nПрограмма завершена пользователем."
@@ -95,25 +101,30 @@ def user_interface(db_manager: DBManager) -> str:
 
 def program_message() -> tuple[str, str, str]:
     """
-    Сообщения для пользовательского интерфейса
-    :return:
+    Сообщения для пользовательского интерфейса.
+    :return: Готовые сообщения.
     """
-    mes1 = ("Добро пожаловать в программу для взаимодействия с базой данных!\n"
-           "Пожалуйста, введите одну или несколько команд представленных ниже:\n")
+    mes1 = (
+        "Добро пожаловать в программу для взаимодействия с базой данных!\n"
+        "Пожалуйста, введите одну или несколько команд представленных ниже:\n"
+    )
     time.sleep(1)
-    mes2 = (">> `1` -Получить список всех компаний и количество вакансий у каждой компании.\n"
-          ">> `2` -Получить информацию о всех вакансиях в сжатом виде.\n"
-          ">> `3` -Получить среднюю зарплату по вакансиям.\n"
-          ">> `4` -Получить список всех вакансий, у которых зарплата выше средней.\n"
-          ">> `5` -Получить список всех вакансий по ключевому слову.\n")
-    mes3 = ("\n--------------------------------------------------------------------------------------------"
-      "\nДля выхода из программы (TERMINAL) зажмите/нажимайте `Ctrl + C` (В `RUN` кликни на `STOP`)\n"
-      "--------------------------------------------------------------------------------------------\n")
+    mes2 = (
+        ">> `1` -Получить список всех компаний и количество вакансий у каждой компании.\n"
+        ">> `2` -Получить информацию о всех вакансиях в сжатом виде.\n"
+        ">> `3` -Получить среднюю зарплату по вакансиям.\n"
+        ">> `4` -Получить список всех вакансий, у которых зарплата выше средней.\n"
+        ">> `5` -Получить список всех вакансий по ключевому слову.\n"
+    )
+    mes3 = (
+        "\n--------------------------------------------------------------------------------------------"
+        "\nДля выхода из программы (TERMINAL) зажмите/нажимайте `Ctrl + C` (В `RUN` кликни на `STOP`)\n"
+        "--------------------------------------------------------------------------------------------\n"
+    )
     return mes1, mes2, mes3
 
 
-query_design = (
-    """CREATE TABLE employers
+query_design = """CREATE TABLE employers
            (
            employer_id INT,
            name VARCHAR(50),
@@ -147,4 +158,3 @@ query_design = (
            ADD CONSTRAINT fk_vacancies_vacancy_id 
            FOREIGN KEY(employer_id) REFERENCES employers(employer_id);
            """
-)

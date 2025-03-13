@@ -1,12 +1,11 @@
-import json
 from time import time
 
+from src.config import config, sensitive_env
 from src.db_manager import DBManager
 from src.utils import data_to_insert, query_design, user_interface
-from src.config import config, sensitive_env
 
 
-def main() -> None:
+def main() -> str:
     """
     Основная функция для объединения и вызова
     всего функционала программы.
@@ -29,7 +28,7 @@ def main() -> None:
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     start_time = time()
     print("Подключение к API\n.")
     # -----------------
@@ -37,12 +36,7 @@ if __name__ == '__main__':
     # -----------------
     end_time = time()
     def_time = end_time - start_time
-    print(f'\nВремя выполнения программы: \n{def_time}')
-
-
-
-
-
+    print(f"\nВремя выполнения программы: \n{def_time}")
 
 
 # OPEN QUESTIONS
@@ -72,4 +66,3 @@ if __name__ == '__main__':
 #      Файл database.ini нужно добавить в .gitignore
 #
 # ------------------------------------------------------------------------------
-

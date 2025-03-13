@@ -4,7 +4,8 @@ import psycopg2
 
 class DBManager:
     """
-    Интерфейс для взаимодействия с базой данных.
+    Класс для создания БД, подключения к ней
+    и для вывода данных из БД.
     """
 
     params: dict
@@ -13,6 +14,7 @@ class DBManager:
     def __init__(self, params, dbname):
         """
         :param params: Параметры для подключения к БД.
+        :param dbname: Название базы данных, необходимое для подключения.
         """
         self.params = params
         self.dbname = dbname
@@ -27,10 +29,10 @@ class DBManager:
         self.cur.close()
         self.conn.close()
 
-    def create(self, new_db_name):
+    def create(self, new_db_name: str) -> None:
         """
         Создание базы данных.
-        :return:
+        :param new_db_name: Название БД для хранения данных.
         """
         try:
             self.end_sessions(new_db_name)
@@ -45,50 +47,64 @@ class DBManager:
         except Exception as err:
             print(f"Ошибка при создании базы данных: {err}")
 
-    def design(self, query=None, close=False):
+    def design(self, query: str = None, close: bool = False) -> None:
         """
         Проектирование базы данных.
-        :return:
+        :param query: Запрос для проектирования.
+        :param close: Принудительное отключение от БД.
         """
         self.cur.execute(query)
         if close is True:
             self.close()
 
-    def insert(self, employers=None, vacancies=None, close=False):
+    def insert(
+        self, employers: list = None, vacancies: list = None, close: bool = False
+    ) -> None:
         """
         Вставка данных в базу данных.
+        :param employers: Данные о работодателях.
+        :param vacancies: Данные о вакансиях.
+        :param close: Принудительное отключение от БД.
         :return:
         """
         # conn = psycopg2.connect(**self.params, database=self.dbname)
         # with conn.cursor() as cur:
         if employers:
-            self.cur.executemany("""
+            self.cur.executemany(
+                """
             INSERT INTO employers (
                 employer_id, name, accredited_it_employer, area, open_vacancies, description
                 ) VALUES (%s, %s, %s, %s, %s, %s)""",
-                             employers)
+                employers,
+            )
         if vacancies:
-            self.cur.executemany("""
+            self.cur.executemany(
+                """
             INSERT INTO vacancies (
                 vacancy_id, employer_id, type, published_at_date, published_at_time,
                 city, address, experience, professional_roles, schedule, salary,
                 work_format, working_hours, work_schedule_by_days, url, description) 
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
-                             vacancies)
+                vacancies,
+            )
         if close is True:
             self.close()
 
     @property
     def get_companies_and_vacancies_count(self) -> pd.DataFrame:
         """
-        Получает список всех компаний и количество вакансий у каждой компании.
+        Получает список всех компаний и количество
+        вакансий у каждой компании.
+        :return: Готовые данные для вывода.
         """
-        self.cur.execute("""
+        self.cur.execute(
+            """
         SELECT DISTINCT(employers.name), COUNT(vacancies.vacancy_id) AS count_vacancies
         FROM vacancies
         JOIN employers USING(employer_id)
         GROUP BY employers.name
-        """)
+        """
+        )
         df = pd.DataFrame(self.cur.fetchall())
         df.columns = ["Название компании", "Кол-во вакансий"]
         df.index = df.index + 1
@@ -99,7 +115,7 @@ class DBManager:
         """
          Получает список всех вакансий с указанием названия компании,
          названия вакансии и зарплаты и ссылки на вакансию.
-        :return:
+        :return: Готовые данные для вывода.
         """
         self.cur.execute(
             """SELECT employers.name AS company_name, professional_roles, salary, url AS vacancy_url
@@ -108,7 +124,12 @@ class DBManager:
             ORDER BY salary DESC"""
         )
         df = pd.DataFrame(self.cur.fetchall())
-        df.columns = ["Название компании", "Должность", "Зарплата", "Ссылка на вакансию"]
+        df.columns = [
+            "Название компании",
+            "Должность",
+            "Зарплата",
+            "Ссылка на вакансию",
+        ]
         df.index = df.index + 1
         return df
 
@@ -116,20 +137,22 @@ class DBManager:
     def get_avg_salary(self) -> pd.DataFrame:
         """
         Получает среднюю зарплату по вакансиям.
-        :return:
+        :return: Готовые данные для вывода.
         """
-        self.cur.execute("""SELECT ROUND(AVG(salary), 2) AS avg_salary FROM vacancies""")
+        self.cur.execute(
+            """SELECT ROUND(AVG(salary), 2) AS avg_salary FROM vacancies"""
+        )
         df = pd.DataFrame(self.cur.fetchone())
         df.columns = ["Средняя зарплата по вакансиям"]
         df.index = df.index + 1
         return df
 
     @property
-    def get_vacancies_with_higher_salary(self):
+    def get_vacancies_with_higher_salary(self) -> pd.DataFrame:
         """
         Получает список всех вакансий, у которых
         зарплата выше средней по всем вакансиям.
-        :return:
+        :return: Готовые данные для вывода.
         """
         self.cur.execute(
             """SELECT * FROM vacancies
@@ -137,31 +160,57 @@ class DBManager:
         )
         df = pd.DataFrame(self.cur.fetchall())
         df.columns = [
-            "vacancy_id", "employer_id", "type", "published_at_date", "published_at_time",
-            "city", "address", "experience", "professional_roles", "schedule", "salary",
-            "work_format", "working_hours", "work_schedule_by_days", "url", "description"
+            "vacancy_id",
+            "employer_id",
+            "type",
+            "published_at_date",
+            "published_at_time",
+            "city",
+            "address",
+            "experience",
+            "professional_roles",
+            "schedule",
+            "salary",
+            "work_format",
+            "working_hours",
+            "work_schedule_by_days",
+            "url",
+            "description",
         ]
         df.index = df.index + 1
         return df
 
-    def get_vacancies_with_keyword(self, keyword):
+    def get_vacancies_with_keyword(self, keyword: str) -> pd.DataFrame | None:
         """
         Получает список всех вакансий по ключевому слову.
-        :return: Вакансии по ключевому слову.
+        :return: Готовые данные для вывода.
         """
         print(keyword)
         try:
             self.cur.execute(
-            f"SELECT * FROM vacancies "
-            f"WHERE LOWER(CONCAT(description, ' ', city, ' ', address, ' ', professional_roles, "
-            f"' ', schedule, ' ',work_format, ' ', work_schedule_by_days, ' ', url, ' ')) "
-            f"LIKE(LOWER('%{keyword}%'))"
+                f"SELECT * FROM vacancies "
+                f"WHERE LOWER(CONCAT(description, ' ', city, ' ', address, ' ', professional_roles, "
+                f"' ', schedule, ' ',work_format, ' ', work_schedule_by_days, ' ', url, ' ')) "
+                f"LIKE(LOWER('%{keyword}%'))"
             )
             df = pd.DataFrame(self.cur.fetchall())
             df.columns = [
-                "vacancy_id", "employer_id", "type", "published_at_date", "published_at_time",
-                "city", "address", "experience", "professional_roles", "schedule", "salary",
-                "work_format", "working_hours", "work_schedule_by_days", "url", "description"
+                "vacancy_id",
+                "employer_id",
+                "type",
+                "published_at_date",
+                "published_at_time",
+                "city",
+                "address",
+                "experience",
+                "professional_roles",
+                "schedule",
+                "salary",
+                "work_format",
+                "working_hours",
+                "work_schedule_by_days",
+                "url",
+                "description",
             ]
             df.index = df.index + 1
         except ValueError:
@@ -182,4 +231,6 @@ class DBManager:
                 f"AND pid <> pg_backend_pid();"
             )
         except Exception as err:
-            print(f"Возникла ошибка при завершении сеансов db_name: {dat_name}, ERROR {err}")
+            print(
+                f"Возникла ошибка при завершении сеансов db_name: {dat_name}, ERROR {err}"
+            )

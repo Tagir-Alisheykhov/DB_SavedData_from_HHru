@@ -14,6 +14,15 @@ requests = "^2.32.3"
 pandas = "^2.2.3"
 psycopg2 = "^2.9.10"
 python-dotenv = "^1.0.1"
+pandas-stubs = "^2.2.3.250308"
+types-requests = "^2.32.0.20250306"
+types-psycopg2 = "^2.9.21.20250121"
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.1.2"
+black = "^25.1.0"
+isort = "^6.0.1"
+mypy = "^1.15.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0"]

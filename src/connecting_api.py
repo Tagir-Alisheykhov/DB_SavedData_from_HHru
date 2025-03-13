@@ -1,6 +1,6 @@
-import json
-import requests
 from abc import ABC, abstractmethod
+
+import requests
 
 
 class ConnectingHHAPI(ABC):
@@ -27,7 +27,7 @@ class SearchEmployersHHAPI(ConnectingHHAPI):
     """
 
     def __init__(self):
-        self.__url = 'https://api.hh.ru/employers'
+        self.__url = "https://api.hh.ru/employers"
         self.__headers = {"User-Agent": "HH-User-Agent"}
         self.__params = {
             "text": "",
@@ -36,15 +36,15 @@ class SearchEmployersHHAPI(ConnectingHHAPI):
             "page": 1,
             "local": "RU",
             "host": "hh.ru",
-            "only_with_vacancies": True
+            "only_with_vacancies": True,
         }
 
-    def connecting_api(self, keyword="It"):
+    def connecting_api(self, keyword: str = "It") -> str:
         """
         :param keyword:
         :return:
         """
-        self.__params['text'] = keyword
+        self.__params["text"] = keyword
         response = requests.get(
             url=self.__url, params=self.__params, headers=self.__headers
         )
@@ -54,24 +54,24 @@ class SearchEmployersHHAPI(ConnectingHHAPI):
 
 class EmployersInfoHHAPI(ConnectingHHAPI):
     """
+    Класс для подключения к API, сервиса HeadHunter.
+    Берет информацию о работодателе, через указанный `employer_id`.
     """
+
+    employer_id: str
 
     def __init__(self, employer_id):
         self.employer_id = employer_id
-        self.__url = f'https://api.hh.ru/employers/{employer_id}'
+        self.__url = f"https://api.hh.ru/employers/{employer_id}"
         self.__headers = {"User-Agent": "HH-User-Agent"}
 
-    def connecting_api(self):
+    def connecting_api(self) -> str:
         """
-        Установка соединения с API `hh.ru`,
-        для получения данных работодателе
-        :return:
+        Установка соединения с API `hh.ru`.
+        :return: Информация о работодателе.
         """
-        response = requests.get(
-            url=self.__url, headers=self.__headers
-        )
+        response = requests.get(url=self.__url, headers=self.__headers)
         current_emp_info = response.json()
-        print(".")
         return current_emp_info
 
 
@@ -83,18 +83,16 @@ class EmployerVacancies(ConnectingHHAPI):
     vacancies_url: str
     keyword: str | None
 
-    def __init__(self, vacancies_url, keyword=None, currency="RUR"):
+    def __init__(self, vacancies_url):
         """
         :param vacancies_url: Ссылка на вакансии работодателя.
         """
-        self._avg_salaries = None
-        self.keyword = keyword
-        self.currency = currency
         self.vacancies_url = vacancies_url
 
-    def connecting_api(self) -> [float, list]:
+    def connecting_api(self) -> tuple[float, list]:
         """
-        :return:
+        Установка соединения с API `hh.ru`.
+        :return: Вакансии
         """
         response = requests.get(url=self.vacancies_url)
         vacancies = response.json()["items"]
