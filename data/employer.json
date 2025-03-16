@@ -1,0 +1,32 @@
+{
+    "id": "9074163",
+    "trusted": true,
+    "accredited_it_employer": false,
+    "name": "Храмшин Тимур Раисович",
+    "type": "company",
+    "description": "<p>Интернет-магазин Nouvel Dream.</p> <p>Аксессуары для дома и детские платья с доставкой по всей России! <br />Мы всегда находимся в поиске молодых и целеустремленных личностей!</p> <p>Головной офис находится в городе Казань. </p>",
+    "site_url": "",
+    "alternate_url": "https://hh.ru/employer/9074163",
+    "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9074163",
+    "logo_urls": {
+        "original": "https://img.hhcdn.ru/employer-logo-original/1080852.png",
+        "90": "https://img.hhcdn.ru/employer-logo/5944037.png",
+        "240": "https://img.hhcdn.ru/employer-logo/5944038.png"
+    },
+    "relations": [],
+    "area": {
+        "id": "88",
+        "name": "Казань",
+        "url": "https://api.hh.ru/areas/88"
+    },
+    "industries": [
+        {
+            "id": "7.541",
+            "name": "Интернет-компания (поисковики, платежные системы, соц.сети, информационно-познавательные и развлекательные ресурсы, продвижение сайтов и прочее)"
+        }
+    ],
+    "branded_description": null,
+    "branding": null,
+    "insider_interviews": [],
+    "open_vacancies": 2
+}
